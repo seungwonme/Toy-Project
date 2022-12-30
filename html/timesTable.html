@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>구구단</title>
+        <style>
+            table {margin: 20px; float: left;}
+            table,th {border: 1px solid #222; border-collapse: collapse;}
+            th,td {padding: 10px 15px;}
+            th {background: #eee;}
+            td {border: 1px solid #222;}
+        </style>
+    </head>
+    <body>
+        <script>
+            // 구구단 table 태그로 만들기
+            for (let i = 2; i <= 9; i++) {
+                document.write('<table>')
+                document.write('<tr><th>' + i + '단' + '</th></tr>')
+                for (let j = 1; j <= 9; j++) {
+                document.write('<tr><td>'+`${i}x${j} =` + i*j + '</td></tr>')}
+                document.write('</table>')
+                }
+            // num에 일의 자리 숫자 아무거나 넣으면 구구단 만들어줌
+            const num = prompt("몇단?","")
+            for (let k = 1; k <= 9; k++) {
+                document.write(`<br>${num}x${k} = ` + num*k)
+            }
+        </script>
+    </body>
+</html>
