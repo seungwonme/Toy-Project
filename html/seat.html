@@ -6,42 +6,46 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>좌석 배치도</title>
         <style>
-            table {margin: 20px; float: left;}
-            table,th {border: 1px solid #222; border-collapse: collapse;}
-            th,td {padding: 10px 15px;}
-            th {background: #eee;}
-            td {border: 1px solid #222;}
+            table{border: 1px solid #222;border-collapse: collapse; margin: 100px auto;}
+            td{border: 1px solid #222;padding: 10px 15px;}
         </style>
     </head>
     <body>
         <script>
-            // 좌석 배치도
-            const numberOfPeople = prompt('총 인원수를 알려주세요.','')
-            const numberOfColumn = prompt('한 줄마다 앉는 인원수를 알려주세요.','')
+            const numberOfPeople = prompt('총 인원수를 알려주세요.','');
+            const numberOfColumn = prompt('한 줄마다 앉는 인원수를 알려주세요.','');
             if (numberOfPeople % numberOfColumn === 0){
-                let numberOfRow = numberOfPeople / numberOfColumn
+                let numberOfRow = numberOfPeople/numberOfColumn;
                 document.write('<table>');
                 for (let i = 1; i <= numberOfRow; i++) {
                     document.write('<tr>');
                     for (let j = 1; j <= numberOfColumn; j++) {
-                        document.write('<td>Person</td>');}
-                    document.write('</tr>');};
-                document.write('</table>');} else {
+                        document.write('<td>Person</td>');
+                    };
+                    document.write('</tr>');
+                };
+                document.write('</table>');
+            } else {
                 let numberOfRow = parseInt(numberOfPeople/numberOfColumn) + 1;
                 document.write('<table>');
-                for (let i = 1; i <= numberOfRow-1; i++) {
+                for (let i = 1; i < numberOfRow; i++) {
                     document.write('<tr>');
                     for (let j = 1; j <= numberOfColumn; j++) {
-                        document.write('<td>Person</td>');}
-                    document.write('</tr>');}
-                document.write('<tr>');
+                        document.write('<td>Person</td>');
+                    };
+                    document.write('</tr>');
+                }
                 // last row
-                for (let k = 1; k <= numberOfPeople%numberOfColumn; k++){
-                    document.write('<td>Person</td>');}
-                for (let l = 1; l <= numberOfColumn - numberOfPeople%numberOfColumn; l++){
-                    document.write('<td></td>');}
-                document.write('</tr>')
-                document.write('</table>')}
+                const peopleOfLastRow = numberOfPeople%numberOfColumn;
+                document.write('<tr>');
+                for (let k = 1; k <= peopleOfLastRow; k++){
+                    document.write('<td>Person</td>');
+                };
+                for (let l = 1; l <= numberOfColumn - peopleOfLastRow; l++){
+                    document.write('<td></td>');
+                };
+                document.write('</tr></table>');
+            }
         </script>
     </body>
 </html>

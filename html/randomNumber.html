@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>random</title>
+</head>
+<body>
+    <button onclick="numberGenerator()">숫자 생성기</button>
+    <p></p>
+    <script>
+        let randomNumber;
+        function numberGenerator() {
+            let cipher = prompt("몇자리 숫자를 원하시나요?","");
+            let result = "";
+            if (isNaN(parseInt(cipher))) {
+                alert("숫자만 입력해주세요.")
+            } else {
+                for (let i = 0; i < cipher ; i++) {
+                    randomNumber = (Math.floor(Math.random() * 10));
+                    result = result + `${randomNumber}`;
+                }
+                document.querySelector("p").innerText = result;
+            }    
+        }
+    </script>
+</body>
+</html>
