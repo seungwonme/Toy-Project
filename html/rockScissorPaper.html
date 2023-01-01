@@ -14,7 +14,7 @@
         const rSP = ["가위", "바위", "보"]
         let random, randomRSP, user;
         function rockScissorPaper() {
-            user = prompt("가위바위보","");
+            user = prompt("'가위', '바위', '보' 중 하나를 내주세요.","");
             random = Math.floor(Math.random() * 3)
             randomRSP = rSP[random];
             document.querySelector("p").innerText = `당신은 ${user}를 냈고 컴퓨터는 ${randomRSP}를 냈습니다.`
@@ -28,22 +28,22 @@
                     else {
                         document.querySelector("div").innerText = "이겼습니다."
                     }
-                }
-                else if (user === "바위") {
+                } else if (user === "바위") {
                     if (randomRSP === "가위"){
                         document.querySelector("div").innerText = "이겼습니다."
                     }
                     else {
                         document.querySelector("div").innerText = "졌습니다."
                     }
-                }
-                else {
+                } else if (user === "보"){
                     if (randomRSP === "가위"){
                         document.querySelector("div").innerText = "졌습니다."
                     }
                     else {
                         document.querySelector("div").innerText = "이겼습니다."
                     }
+                } else {
+                    document.querySelector("div").innerText = "정상적인 값을 입력해주세요."
                 }
             }
         }
