@@ -5,49 +5,86 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        * {font-size: 20px; font-weight: 700;}
+        #wrap {margin: 0 auto; width: 540px; position: relative;}
+        p:first-child {margin-bottom: 50px;}
+        #result {text-align: center; position: absolute; top: 30px; width: 120px; text-align: center; left: 210px;}
+        span {display: inline-block; width: 266px; text-align: center;}
+        i {display: inline-block; width: 266px; height: 400px; background: url(../img/rock.png);}
+        #wrap > div {display: flex; justify-content: space-around; margin-top: 50px;}
+        button {padding: 5px 0; border-radius: 15px; width: 150px; transition: .3s;}
+        button:active {color: rgb(255, 196, 123);}
+        .scissor{background-position: -266px 0;}
+        .paper{background-position: -532px 0;}
+    </style>
 </head>
 <body>
-    <button>가위바위보</button>
-    <p></p>
-    <div></div>
+    <div id="wrap">
+        <p><span>USER</span><span>BOT</span></p>
+        <p id="result"></p>
+        <i id="user"></i>
+        <i id="bot"></i>
+        <div>
+            <button class="userRock">ROCK</button>
+            <button class="userScissor">SCISSOR</button>
+            <button class="userPaper">PAPER</button>
+        </div>
+    </div>
     <script>
-        const rSP = ["가위", "바위", "보"]
+        const rsp = ["가위", "바위", "보"]
         let random, randomRSP, user;
-        function rockScissorPaper() {
-            user = prompt("'가위', '바위', '보' 중 하나를 내주세요.","");
+        function userScissor() {
+            user = rsp[0];
             random = Math.floor(Math.random() * 3)
-            randomRSP = rSP[random];
-            document.querySelector("p").innerText = `당신은 ${user}를 냈고 컴퓨터는 ${randomRSP}를 냈습니다.`
-            if (user === randomRSP) {
-                document.querySelector("div").innerText = "비겼습니다."
+            bot = rsp[random]
+            document.querySelector("#user").className = "scissor"
+            if (random === 0) {
+                document.querySelector("#bot").className = "scissor"
+                document.querySelector("#result").innerText = "End in a tie"
+            } else if (random === 1) {
+                document.querySelector("#bot").className = ""
+                document.querySelector("#result").innerText = "You lose"
             } else {
-                if (user === "가위") {
-                    if (randomRSP === "바위"){
-                        document.querySelector("div").innerText = "졌습니다."
-                    }
-                    else {
-                        document.querySelector("div").innerText = "이겼습니다."
-                    }
-                } else if (user === "바위") {
-                    if (randomRSP === "가위"){
-                        document.querySelector("div").innerText = "이겼습니다."
-                    }
-                    else {
-                        document.querySelector("div").innerText = "졌습니다."
-                    }
-                } else if (user === "보"){
-                    if (randomRSP === "가위"){
-                        document.querySelector("div").innerText = "졌습니다."
-                    }
-                    else {
-                        document.querySelector("div").innerText = "이겼습니다."
-                    }
-                } else {
-                    document.querySelector("div").innerText = "정상적인 값을 입력해주세요."
-                }
+                document.querySelector("#bot").className = "paper"
+                document.querySelector("#result").innerText = "You Win !"
             }
         }
-        document.querySelector("button").addEventListener("click",rockScissorPaper);
+        function userRock() {
+            user = rsp[1];
+            random = Math.floor(Math.random() * 3)
+            bot = rsp[random]
+            document.querySelector("#user").className = ""
+            if (random === 1) {
+                document.querySelector("#bot").className = ""
+                document.querySelector("#result").innerText = "End in a tie"
+            } else if (random === 2) {
+                document.querySelector("#bot").className = "paper"
+                document.querySelector("#result").innerText = "You lose"
+            } else {
+                document.querySelector("#bot").className = "scissor"
+                document.querySelector("#result").innerText = "You Win !"
+            }
+        }
+        function userPaper() {
+            user = rsp[2];
+            random = Math.floor(Math.random() * 3)
+            bot = rsp[random]
+            document.querySelector("#user").className = "paper"
+            if (random === 2) {
+                document.querySelector("#bot").className = "paper"
+                document.querySelector("#result").innerText = "End in a tie"
+            } else if (random === 0) {
+                document.querySelector("#bot").className = "scissor"
+                document.querySelector("#result").innerText = "You lose"
+            } else {
+                document.querySelector("#bot").className = ""
+                document.querySelector("#result").innerText = "You Win !"
+            }
+        }
+        document.querySelector(".userScissor").addEventListener("click",userScissor)
+        document.querySelector(".userRock").addEventListener("click",userRock)
+        document.querySelector(".userPaper").addEventListener("click",userPaper)
     </script>
 </body>
 </html>

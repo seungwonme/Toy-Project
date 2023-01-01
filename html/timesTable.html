@@ -15,19 +15,22 @@
     </head>
     <body>
         <script>
-            // 구구단 table 태그로 만들기
+            // 9단까지 자동생성
             for (let i = 2; i <= 9; i++) {
-                document.write('<table>')
-                document.write('<tr><th>' + i + '단' + '</th></tr>')
-                for (let j = 1; j <= 9; j++) {
-                document.write('<tr><td>'+`${i}x${j} =` + i*j + '</td></tr>')}
-                document.write('</table>')
-                }
-            // num에 일의 자리 숫자 아무거나 넣으면 구구단 만들어줌
-            const num = prompt("몇단?","")
-            for (let k = 1; k <= 9; k++) {
-                document.write(`<br>${num}x${k} = ` + num*k)
+            document.write('<table>')
+            document.write('<tr><th>' + i + '단' + '</th></tr>')
+            for (let j = 1; j <= 9; j++) {
+            document.write('<tr><td>'+`${i}x${j} =` + i*j + '</td></tr>')}
+            document.write('</table>')
             }
+            // 특정 구구단 생성
+            const num = prompt("몇단?","")
+            document.write('<table>')
+            document.write(`<tr><th>${num}단</th></tr>`)
+            for (let k = 1; k <= 9; k++) {
+                document.write(`<tr><td>${num}x${k}= ${num*k}</td></tr>`)
+            }
+            document.write('</table>')
         </script>
     </body>
 </html>
