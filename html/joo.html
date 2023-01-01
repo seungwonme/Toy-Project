@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img {margin: 100px auto; display: block;}
+    </style>
+</head>
+<body>
+    <img src="../img/imnotangry.png" alt="나 화 안났어" width="200">
+    <script>
+        function angry() {
+            document.querySelector("img").src = "../img/imangry.png"
+        }
+        document.querySelector("img").addEventListener("click",angry)
+    </script>
+</body>
+</html>

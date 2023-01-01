@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button>가위바위보</button>
+    <p></p>
+    <div></div>
+    <script>
+        const rSP = ["가위", "바위", "보"]
+        let random, randomRSP, user;
+        function rockScissorPaper() {
+            user = prompt("가위바위보","");
+            random = Math.floor(Math.random() * 3)
+            randomRSP = rSP[random];
+            document.querySelector("p").innerText = `당신은 ${user}를 냈고 컴퓨터는 ${randomRSP}를 냈습니다.`
+            if (user === randomRSP) {
+                document.querySelector("div").innerText = "비겼습니다."
+            } else {
+                if (user === "가위") {
+                    if (randomRSP === "바위"){
+                        document.querySelector("div").innerText = "졌습니다."
+                    }
+                    else {
+                        document.querySelector("div").innerText = "이겼습니다."
+                    }
+                }
+                else if (user === "바위") {
+                    if (randomRSP === "가위"){
+                        document.querySelector("div").innerText = "이겼습니다."
+                    }
+                    else {
+                        document.querySelector("div").innerText = "졌습니다."
+                    }
+                }
+                else {
+                    if (randomRSP === "가위"){
+                        document.querySelector("div").innerText = "졌습니다."
+                    }
+                    else {
+                        document.querySelector("div").innerText = "이겼습니다."
+                    }
+                }
+            }
+        }
+        document.querySelector("button").addEventListener("click",rockScissorPaper);
+    </script>
+</body>
+</html>
