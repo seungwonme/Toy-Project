@@ -3451,14 +3451,42 @@ const words = {
     streaked: '①연속 ②계속',
 };
 const eng = Object.entries(words);
-const create = document.querySelector('.create');
+
 const word = document.querySelector('.word');
 const meaning = document.querySelector('.meaning');
+const wordNumber = document.querySelector('input#wordNumber');
+
+const create = document.querySelector('.create');
+
 function wordGenerator() {
-    let random = Math.floor(Math.random() * eng.length + 1);
-    word.innerText = eng[random][0];
-    meaning.innerText = eng[random][1];
+    for (let i = 0; i < Number(wordNumber.value); i++) {
+        let random = Math.floor(Math.random() * eng.length + 1);
+
+        let currentDiv = document.getElementById('wordWrap');
+
+        let newWordSpan = document.createElement('span');
+        let newWord = document.createTextNode(`${eng[random][0]}`);
+        newWordSpan.appendChild(newWord);
+        document.querySelector('#today').insertBefore(newWordSpan, currentDiv);
+
+        let newMeaningSpan = document.createElement('span');
+        let newMeaning = document.createTextNode(`${eng[random][1]}`);
+        newMeaningSpan.appendChild(newMeaning);
+        document.querySelector('#today').insertBefore(newMeaningSpan, currentDiv);
+    }
+
     modalBackground.classList.remove('on');
     modalPopup.classList.remove('on');
+    modalPopupOpen.classList.add("hidden")
 }
 create.addEventListener('click', wordGenerator);
+
+const modalBackground = document.querySelector('#modal');
+const modalPopup = document.querySelector('#modal .content');
+const modalPopupOpen = document.querySelector('.open');
+function modalOpen(event) {
+    event.preventDefault();
+    modalBackground.classList.add('on');
+    modalPopup.classList.add('on');
+}
+modalPopupOpen.addEventListener('click', modalOpen);

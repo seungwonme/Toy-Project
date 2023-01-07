@@ -11,17 +11,28 @@
         <section id="modal">
             <div class="content">
                 <p>How many are you going to memorize?</p>
-                <button class="create">생성</button>
+                <form action="#">
+                    <input type="number" id="wordNumber" min="0">
+                    <button class="create">create</button>
+                </form>
             </div>
         </section>
-        <div id="wrap">
-            <button class="open">모달팝업 생성</button>
-            <p>
-                <span class="word"></span>
-                <span class="meaning"></span>
-            </p>
-        </div>
-        <script src="js/word.js"></script>
-        <script src="js/modalPopup.js"></script>
+        <main id="wrap">
+            <section>
+                <a href="#today" class="tab on">오늘의 단어</a>
+                <a href="#wrong" class="tab">틀린 문제</a>
+            </section>
+            <section id="today" class="tabview">
+                <button class="open">시작하기</button>
+                <div id="wordWrap">
+                    <p id="dummy"></p>
+                </div>
+            </section>
+            <section id="wrong" class="tabview">
+
+            </section>
+        </main>
+            <script src="js/word.js"></script>
+            <script src="js/modalPopup.js"></script>
     </body>
 </html>

@@ -7,3 +7,4 @@ const backgroundImage = document.createElement("img");
 backgroundImage.src = `img/${chosenImage}`;
 
 document.body.appendChild(backgroundImage)
+// body의 제일 마지막에 삽입 prepend를 사용하면 제일 앞

@@ -45,4 +45,3 @@ const author = document.querySelector("#quote span:last-child")
 const random = Math.floor(Math.random()*quote.length)
 quotes.innerText = `${quote[random].quote}`
 author.innerText = `${quote[random].author}`
-console.log(random);
