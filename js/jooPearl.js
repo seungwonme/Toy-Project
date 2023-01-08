@@ -1,6 +1,6 @@
 let i = 0;
-function pearlPatience(params) {
-    i = i + 1;
+function pearlPatience() {
+    i++;
     if (i < 5) {
         const pearlMove = [{ transform: 'translateX(-150px)' }, { transform: 'translateX(-160px)' }, { transform: 'translateX(-140px)' }];
         const pearlTiming = {
