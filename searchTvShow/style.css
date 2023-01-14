@@ -1,0 +1,8 @@
+* {margin: 0; padding: 0;}
+body {overflow-y: scroll; overflow-x: hidden;}
+h1 {text-align: center;}
+form {text-align: center;}
+ul {display: flex; list-style: none; flex-flow: row wrap;}
+li {width: 30%; margin: calc(10%/6); display: flex; flex-flow:column wrap ;}
+img {width: 100%;}
+span {text-align: center;}
