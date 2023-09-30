@@ -1,5 +1,5 @@
 const timer = document.querySelector('h2');
-const dDay = new Date("November 25, 2023, 0:00:00").getTime();
+const dDay = new Date("December 25, 2023, 0:00:00").getTime();
 
 function count() {
     const now = new Date().getTime();
