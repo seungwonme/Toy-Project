@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Pokemon Card</title>
+	<style>
+		body
+		{
+			display: flex;
+			flex-wrap: wrap;
+		}
+		.container {
+			width: 220px;
+			height: 310px;
+			margin: 20px;
+			position: relative;
+		}
+		.overlay {
+			position: absolute;
+			width: 220px;
+			height: 310px;
+			background: linear-gradient(105deg,
+			transparent 40%,
+			rgba(255, 219, 112, 0.8) 45%,
+			rgba(132, 50, 255, 0.6) 50%,
+			transparent 54%);
+			filter: brightness(1.2) opacity(0.8);
+			mix-blend-mode: color-dodge;
+			background-size: 150% 150%;
+			background-position: 100%;
+			transition: all 0.1s;
+		}
+		.card {
+			display: inline-block;
+			width: 220px;
+			height: 310px;
+			background-size: cover;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="overlay"></div>
+		<div class="card" style="background-image: url(card/deoxys.webp);"></div>
+	</div>
+	<div class="container">
+		<div class="overlay"></div>
+		<div class="card" style="background-image: url(card/garchomp.webp);"></div>
+	</div>
+	<div class="container">
+		<div class="overlay"></div>
+		<div class="card" style="background-image: url(card/groundon.webp);"></div>
+	</div>
+	<div class="container">
+		<div class="overlay"></div>
+		<div class="card" style="background-image: url(card/hoopa.webp);"></div>
+	</div>
+	<div class="container">
+		<div class="overlay"></div>
+		<div class="card" style="background-image: url(card/jirachi.webp);"></div>
+	</div>
+	<div class="container">
+		<div class="overlay"></div>
+		<div class="card" style="background-image: url(card/latios.webp);"></div>
+	</div>
+	<div class="container">
+		<div class="overlay"></div>
+		<div class="card" style="background-image: url(card/palkia.webp);"></div>
+	</div>
+	<div class="container">
+		<div class="overlay"></div>
+		<div class="card" style="background-image: url(card/porygonz.webp);"></div>
+	</div>
+	<div class="container">
+		<div class="overlay"></div>
+		<div class="card" style="background-image: url(card/steelix.webp);"></div>
+	</div>
+	<div class="container">
+		<div class="overlay"></div>
+		<div class="card" style="background-image: url(card/yveltal.webp);"></div>
+	</div>
+	<script src="card.js"></script>
+</body>
+</html>
