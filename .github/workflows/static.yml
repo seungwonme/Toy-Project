@@ -1,99 +1,20 @@
-name: Deploy static content to Pages
+name: Static Website Deployment
+
 on:
   push:
-    branches: ["main"]
-  workflow_dispatch:
-permissions:
-  contents: readname: Deploy static content to Pages
-on:
-  push:
-    branches: ["main"]
-  workflow_dispatch:
-permissions:
-  contents: read
-  pages: write
-  id-token: write
-concurrency:
-  group: "pages"
-  cancel-in-progress: false
+    branches:
+      - main
+
 jobs:
   deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-      # Build process for the src folder
-      - name: Install dependencies and build src folder
-        run: |
-          cd src
-          # Add commands to install dependencies and build process
-          # For example, npm install && npm run build
-      # Upload the src folder as an artifact
-      - name: Upload src folder as artifact
-        uses: actions/upload-artifact@v2
-        with:
-          name: src
-          path: src
-      # Continue with the original steps
-      - name: Setup Pages
-        uses: actions/configure-pages@v4
-      - name: Upload public folder as artifact
-        uses: actions/upload-artifact@v2
-        with:
-          name: github-pages
-          path: public
+      - name: Checkout code
+        uses: actions/checkout@v2
+
       - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+        uses: JamesIves/github-pages-deploy-action@4.1.1
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          branch: gh-pages
-          folder: public
-  pages: write
-  id-token: write
-concurrency:
-  group: "pages"
-  cancel-in-progress: false
-jobs:
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-      # Build process for the src folder
-      - name: Install dependencies and build src folder
-        run: |
-          cd src
-          # Add commands to install dependencies and build process
-          # For example, npm install && npm run build
-      # Upload the src folder as an artifact
-      - name: Upload src folder as artifact
-        uses: actions/upload-artifact@v2
-        with:
-          name: src
-          path: src
-      # Continue with the original steps
-      - name: Setup Pages
-        uses: actions/configure-pages@v4
-      - name: Upload public folder as artifact
-        uses: actions/upload-artifact@v2
-        with:
-          name: public
-          path: public
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
           branch: gh-pages
           folder: public
