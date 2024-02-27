@@ -5,10 +5,31 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vanilla JavaScript Toy Project</title>
-    <link rel="stylesheet" href="./styles/style.css">
+    <style>
+      body {
+        display: flex;
+        flex-flow: column nowrap;
+        align-items: flex-start;
+        gap: 10px;
+      }
+      a {
+        text-decoration: none;
+        color: #222;
+        border: 1px solid;
+        border-radius: 15px;
+        padding: 5px 10px;
+        transition: 0.5s;
+      }
+      a:hover {
+        background-color: #222;
+        color: #fff;
+      }
+    </style>
   </head>
   <body>
-    <a href="./toyProject/christmas/index.html">올해 크리스마스는 얼마나 남았나요?</a>
+    <a href="./toyProject/christmas/index.html"
+      >올해 크리스마스는 얼마나 남았나요?</a
+    >
     <a href="./toyProject/calculator/public/index.html">계산기</a>
   </body>
 </html>
